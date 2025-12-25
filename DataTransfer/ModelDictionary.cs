@@ -1,4 +1,6 @@
-﻿namespace SpiegelHase.DataTransfer;
+﻿using System.Numerics;
+
+namespace SpiegelHase.DataTransfer;
 
 public sealed class ModelDictionary
 {
@@ -47,4 +49,5 @@ public sealed class ModelDictionary
     {
         return Entries.GetEnumerator();
     }
+
 }

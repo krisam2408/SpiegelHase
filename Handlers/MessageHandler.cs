@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using SpiegelHase.DataTransfer;
+﻿using SpiegelHase.DataTransfer;
+using System.Text.Json;
 
 namespace SpiegelHase.Handlers;
 
@@ -14,14 +14,14 @@ public class MessageHandler
 
     public string Serialize()
     {
-        string result = JsonConvert.SerializeObject(Messages);
+        string result = JsonSerializer.Serialize(Messages);
         return result;
     }
 
     public static MessageHandler Deserialize(string serial)
     {
         MessageHandler result = new();
-        List<Message>? messages = JsonConvert.DeserializeObject<List<Message>>(serial);
+        List<Message>? messages = JsonSerializer.Deserialize<List<Message>>(serial);
 
         if (messages == null)
             return result;
