@@ -29,6 +29,9 @@ public class HaseViewModel
         if (MessageHandler is null)
             return;
 
+        if(MessageHandler.Messages.Count == 0) 
+            return;
+
         string messages = MessageHandler.Serialize();
         byte[] buffer = Encoding.UTF8.GetBytes(messages);
         MessageString = Convert.ToBase64String(buffer);
